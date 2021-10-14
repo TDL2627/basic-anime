@@ -1,0 +1,146 @@
+/*// BASE STYLES //*/
+
+html, body{
+  height: 100%;
+  width:100%;
+  overflow: hidden;
+  margin: 0;
+  background-color: rgb(43, 52, 56);
+}
+
+.grass, .sky, .road{
+  position: relative;
+}
+
+.sky{
+  height: 40%;
+  background: rgb(43, 52, 56);
+}
+
+.grass{
+  height: 15%;
+  width: 100%;
+ 
+}
+.space{
+  width: 100%;
+}
+
+.road{
+  height: 30%;
+  background: dimgrey;
+  box-sizing: border-box;
+  border-top: 10px solid  white;
+  border-bottom: 10px solid  white;
+  width: 100%;
+}
+
+.lines{
+  box-sizing: border-box;
+  border: 5px dashed yellow;
+  height: 0px;
+  width: 100%;
+  position: absolute;
+  top: 45%;
+}
+
+/*// ELEMENTS TO ANIMATE //*/
+.moon{
+  height: 100px;
+  margin-left: 25px;
+  margin-top: 25px;
+  z-index: 22;
+}
+
+.super {
+  position: absolute;
+  top: -50px;
+  left: 0px;
+  height: 150px;
+  /* Call the keyframe */
+  animation-name: drive;
+  /* Specify how long you want the animation to last for */
+  animation-duration: 2s;
+  /* It takes the last keyframe element (to) and applies it to the image */
+  animation-fill-mode: forwards;
+  
+  /* It takes the first keyframe element (from) and applies it to the image */
+  /* animation-fill-mode: backwards; */
+  
+  /* It takes the first keyframe element (from) and applies it to the image */
+  /* animation-fill-mode: both; */
+  
+  /* Delays the animation */
+  /* animation-delay: 2s; */
+
+  /* Determines how many times you want the animation to repeat */
+  animation-iteration-count: infinite;
+
+  /* Determines the speed of the animation */
+  animation-timing-function: ease;
+
+  /* can creating your own timing option */
+  /* Here you can create your own speed and different intervals of the animation: https://cubic-bezier.com/ */
+  /* animation-timing-function: cubic-bezier(1, 0, 0, 1); */
+}
+
+.gary {
+  position: absolute;
+  height: 100px;
+  top: 80px;
+  left: 0;
+  animation-name: drive;
+  animation-duration: 7s;
+  animation-fill-mode: both;
+  animation-iteration-count: infinite;
+  
+  /* Can choose the direction of the animation */
+  /* animation-direction: alternate; */
+}
+
+.heli {
+  position: absolute;
+  width: 200px;
+  top: 10px;
+  animation: wind 80s linear infinite ;
+}
+.jet {
+  position: absolute;
+  width: 200px;
+  top: 150px;
+  animation: wind 20s linear infinite  reverse;
+}
+
+/* .cloud:nth-child(1) {
+  width: 200px;
+  top: 10px;
+  opacity: 0.5;
+   Short hand, the first item has to be animation and second item has to be duration, the rest of the order does not matter 
+  animation: wind 80s linear infinite reverse;
+}
+
+.cloud:nth-child(2) {
+  width: 300px;
+  top:0;
+  width: 200px;
+  top: 120px;
+  opacity: 0.5;
+  animation: wind 60s linear infinite reverse;
+} */
+
+/*// KEYFRAMES //*/
+
+/* Image will move from the right to the left */
+@keyframes drive {
+  0% { transform: translateX(-100px); } /* Starting point */
+  10%{top: 50px;}
+  25%{top:-50px; }
+  50%{top:50px;}
+  70%{top:-50px;}
+  100% { transform: translateX(1700px); } /* Ending point */
+}
+
+@keyframes wind {
+  from { left: -300px }
+  to { left: 100% }
+}
